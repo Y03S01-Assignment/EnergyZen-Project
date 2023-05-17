@@ -6,11 +6,13 @@ import {CartContext} from "@/components/CartContext";
 import BarsIcon from "@/components/icons/Bars";
 
 const StyledHeader = styled.header`
-  background-color: #222;
+  background-color: #25be6b;
 `;
 const Logo = styled(Link)`
-  color:#fff;
+  color:black;
   text-decoration:none;
+  font-size:1.5rem;
+  font-weight:bold;
   position: relative;
   z-index: 3;
 `;
@@ -32,7 +34,7 @@ const StyledNav = styled.nav`
   left: 0;
   right: 0;
   padding: 70px 20px 20px;
-  background-color: #222;
+  background-color: #black;
   @media screen and (min-width: 768px) {
     display: flex;
     position: static;
@@ -41,7 +43,7 @@ const StyledNav = styled.nav`
 `;
 const NavLink = styled(Link)`
   display: block;
-  color:#aaa;
+  color:black;
   text-decoration:none;
   padding: 10px 0;
   @media screen and (min-width: 768px) {
@@ -69,12 +71,12 @@ export default function Header() {
     <StyledHeader>
       <Center>
         <Wrapper>
-          <Logo href={'/'}>Ecommerce</Logo>
+          <Logo href={'/'}>EnergyZen</Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
             <NavLink href={'/'}>Home</NavLink>
-            <NavLink href={'/products'}>All products</NavLink>
-            <NavLink href={'/categories'}>Categories</NavLink>
-            <NavLink href={'/account'}>Account</NavLink>
+            <NavLink href={'/products'}>Products</NavLink>
+            <NavLink href={'/services'}>Services</NavLink>
+            <NavLink href={'/inventions'}>Inventions</NavLink>
             <NavLink href={'/cart'}>Cart ({cartProducts.length})</NavLink>
           </StyledNav>
           <NavButton onClick={() => setMobileNavActive(prev => !prev)}>

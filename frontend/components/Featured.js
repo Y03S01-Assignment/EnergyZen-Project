@@ -7,12 +7,13 @@ import {useContext} from "react";
 import {CartContext} from "@/components/CartContext";
 
 const Bg = styled.div`
-  background-color: #222;
+  background-color: #8aeeb6;
   color:#fff;
   padding: 50px 0;
 `;
 const Title = styled.h1`
   margin:0;
+  color:black;
   font-weight:normal;
   font-size:1.5rem;
   @media screen and (min-width: 768px) {
@@ -20,7 +21,7 @@ const Title = styled.h1`
   }
 `;
 const Desc = styled.p`
-  color:#aaa;
+  color:black;
   font-size:.8rem;
 `;
 const ColumnsWrapper = styled.div`
@@ -61,6 +62,7 @@ export default function Featured({product}) {
   function addFeaturedToCart() {
     addProduct(product._id);
   }
+  console.log(product);
   return (
     <Bg>
       <Center>
@@ -79,7 +81,7 @@ export default function Featured({product}) {
             </div>
           </Column>
           <Column>
-            <img src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png" alt=""/>
+            <img src="https://dawid-next-ecommerce.s3.amazonaws.com/1679151719649.png" alt="image"/>
           </Column>
         </ColumnsWrapper>
       </Center>
