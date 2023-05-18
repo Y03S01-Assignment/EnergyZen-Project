@@ -7,11 +7,11 @@ const servicesSchema = new mongoose.Schema({
         required:true
     },
 
-    discription:{
+    description:{
         type:String,
         required:true
     },
-    retal:{
+    rental:{
         type:Number,
         required:true
     }

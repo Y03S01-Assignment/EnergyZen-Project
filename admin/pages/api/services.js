@@ -1,4 +1,4 @@
-import {Product} from "@/models/services";
+import {serviceAdd} from "@/models/serviceAdd";
 import {mongooseConnect} from "@/lib/mongoose";
 import {isAdminRequest} from "@/pages/api/auth/[...nextauth]";
 
@@ -9,29 +9,29 @@ export default async function handle(req, res) {
 
   if (method === 'GET') {
     if (req.query?.id) {
-      res.json(await Services.findOne({_id:req.query.id}));
+      res.json(await serviceAdd.findOne({_id:req.query.id}));
     } else {
-      res.json(await Services.find());
+      res.json(await serviceAdd.find());
     }
   }
 
   if (method === 'POST') {
-    const {title,description,price,images,category,properties} = req.body;
-    const productDoc = await Product.create({
-      title,description,price,images,category,properties,
+    const {stype,description,rental} = req.body;
+    const serviceDoc = await Product.create({
+      stype,description,rental,
     })
-    res.json(productDoc);
+    res.json(serviceDoc);
   }
 
   if (method === 'PUT') {
-    const {title,description,price,images,category,properties,_id} = req.body;
-    await Product.updateOne({_id}, {title,description,price,images,category,properties});
+    const {stype,description,rental,_id} = req.body;
+    await Service.updateOne({_id}, {stype,description,rental});
     res.json(true);
   }
 
   if (method === 'DELETE') {
     if (req.query?.id) {
-      await Product.deleteOne({_id:req.query?.id});
+      await Service.deleteOne({_id:req.query?.id});
       res.json(true);
     }
   }

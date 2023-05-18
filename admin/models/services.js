@@ -6,11 +6,6 @@ const servicesSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-
-    lname:{
-        type:String,
-        required:true
-    },
     email:{
         type:String,
         required:true
@@ -19,7 +14,7 @@ const servicesSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    discription:{
+    description:{
         type:String,
         required:true
     }

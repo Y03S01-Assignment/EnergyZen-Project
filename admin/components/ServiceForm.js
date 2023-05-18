@@ -6,24 +6,24 @@ import { ReactSortable } from "react-sortablejs";
 
 export default function ProductForm({
   _id,
-  title: existingTitle,
+  stype: existingTitle,
   description: existingDescription,
-  price: existingPrice,
+  rental: existingPrice,
 
 }) {
-  const [title, setTitle] = useState(existingTitle || "");
+  const [stype, setTitle] = useState(existingTitle || "");
   const [description, setDescription] = useState(existingDescription || "");
-  const [price, setPrice] = useState(existingPrice || "");
-  const [goToProducts, setGoToProducts] = useState(false);
+  const [rental, setPrice] = useState(existingPrice || "");
+  const [goToServices, setGoToServices] = useState(false);
 
   const router = useRouter();
 
   async function saveService(ev) {
     ev.preventDefault();
     const data = {
-      title,
+      stype,
       description,
-      price,
+      rental,
       
     };
     if (_id) {
@@ -33,10 +33,10 @@ export default function ProductForm({
       //create
       await axios.post("/api/products", data);
     }
-    setGoToProducts(true);
+    setGoToServices(true);
   }
-  if (goToProducts) {
-    router.push("/products");
+  if (goToServices) {
+    router.push("/services");
   }
 //   async function uploadImages(ev) {
 //     const files = ev.target?.files;
@@ -56,11 +56,11 @@ export default function ProductForm({
 //   function updateImagesOrder(images) {
 //     setImages(images);
 //   }
-  function setProductProp(propName, value) {
-    setProductProperties((prev) => {
-      const newProductProps = { ...prev };
-      newProductProps[propName] = value;
-      return newProductProps;
+  function setServiceProp(propName, value) {
+    setServiceProperties((prev) => {
+      const newServiceProps = { ...prev };
+      newServiceProps[propName] = value;
+      return newServiceProps;
     });
   }
 
@@ -70,7 +70,7 @@ export default function ProductForm({
       <input
         type="text"
         placeholder="Servie Type"
-        value={title}
+        value={stype}
         onChange={(ev) => setTitle(ev.target.value)}
       />
 
@@ -85,7 +85,7 @@ export default function ProductForm({
       <input
         type="number"
         placeholder="price"
-        value={price}
+        value={rental}
         onChange={(ev) => setPrice(ev.target.value)}
       />
       <button type="submit" className="btn-primary">
